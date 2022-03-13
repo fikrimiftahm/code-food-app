@@ -15,7 +15,13 @@ class RecipesHandler {
 
     async getRecipesHandler(request, h) {
         try {
-            const recipes = await this._service.getRecipes();
+            const {
+                categoryId,
+                sort,
+                limit,
+                skip,
+            } = request.query;
+            const recipes = await this._service.getRecipes(categoryId, sort, limit, skip);
 
             const response = h.response({
                 success: true,

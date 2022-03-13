@@ -8,7 +8,8 @@ const up = `
         FOREIGN KEY (step_id) REFERENCES steps(id),
         status VARCHAR(255) NOT NULL,
         created_at DATETIME DEFAULT NOW(),
-        updated_at DATETIME DEFAULT NOW() ON UPDATE NOW()
+        updated_at DATETIME DEFAULT NOW() ON UPDATE NOW(),
+        UNIQUE KEY steps (user_id, step_id)
     )
 `;
 const down = `DROP TABLE users_steps`;

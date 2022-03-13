@@ -24,12 +24,23 @@ const search = require('./api/search');
 const SearchService = require('./services/SearchService');
 const SearchValidator = require('./validator/search');
 
+const serve = require('./api/serves');
+const ServeHistoryService = require('./services/ServeHistoryService');
+const ServeValidator = require('./validator/serves');
+const StepStatusValidator = require('./validator/stepstatus');
+
+const reaction = require('./api/reaction');
+const ReactionService = require('./services/ReactionService');
+const ReactionValidator = require('./validator/reaction');
+
 const init = async () => {
     const usersService = new UsersService();
     const authenticationsService = new AuthenticationsService();
     const categoriesService = new CategoriesService();
     const recipesService = new RecipesService();
     const searchService = new SearchService();
+    const serveHistoryService = new ServeHistoryService();
+    const reactionService = new ReactionService();
 
     const server = Hapi.server({
         port: process.env.PORT,
@@ -102,6 +113,22 @@ const init = async () => {
             options: {
                 service: searchService,
                 validator: SearchValidator,
+            },
+        },
+        {
+            plugin: serve,
+            options: {
+                service: serveHistoryService,
+                validator: ServeValidator,
+                updateValidator: StepStatusValidator,
+            },
+        },
+        {
+            plugin: reaction,
+            options: {
+                service: reactionService,
+                serveService: serveHistoryService,
+                validator: ReactionValidator,
             },
         },
     ]);

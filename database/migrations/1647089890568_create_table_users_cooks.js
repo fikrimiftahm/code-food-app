@@ -8,7 +8,8 @@ const up = `
         FOREIGN KEY (recipe_id) REFERENCES recipes(id),
         n_of_serving INT NOT NULL DEFAULT 1,
         created_at DATETIME DEFAULT NOW(),
-        updated_at DATETIME DEFAULT NOW() ON UPDATE NOW()
+        updated_at DATETIME DEFAULT NOW() ON UPDATE NOW(),
+        UNIQUE KEY serve (user_id, recipe_id)
     )
 `;
 const down = `DROP TABLE users_cooks`;

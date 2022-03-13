@@ -2,8 +2,8 @@ const { Sequelize } = require('sequelize');
 const sequelize = require('../utils/sequelize').sequelize;
 const { DataTypes } = Sequelize;
 const Users = require('./users');
-const Recipes = require('./recipes');
 const moment = require('moment');
+const Steps = require('./steps');
 
 const UsersSteps = sequelize.define('users_steps', {
     id: {
@@ -19,11 +19,11 @@ const UsersSteps = sequelize.define('users_steps', {
             key: 'id',
         },
     },
-    recipe_id: {
+    step_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-            model: Recipes,
+            model: Steps,
             key: 'id',
         },
     },

@@ -38,8 +38,9 @@ class AuthenticationsHandler {
                 success: true,
                 message: 'Success',
                 data: {
-                    accessToken: accessToken,
-                    refreshToken: refreshToken,
+                    token: accessToken,
+                    // accessToken: accessToken,
+                    // refreshToken: refreshToken,
                 },
             });
             response.code(200);

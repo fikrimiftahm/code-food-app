@@ -7,8 +7,8 @@ const up = `
     (1, 5, 'Masukkan potongan ayam, aduk hingga kaku.'),
     (1, 6, 'Tuangi air kelapa, tutup wajan. Masak dengan api sedang hingga bumbu meresap dan ayam empuk. Angkat dan dinginkan.'),
     (1, 7, 'Panaskan minyak banyak dalam wajan di atas api sedang.'),
-    (1, 8, 'Panaskan minyak banyak dalam wajan di atas api sedang.'),
-    (1, 9, 'Panaskan minyak banyak dalam wajan di atas api sedang.'),
+    (1, 8, 'Goreng ayam sampai berwarna kecoklatan'),
+    (1, 9, 'Ayam siap disajikan'),
     (2, 1, 'Pertama haluskan semua bahan kecuali gula merah cair.'),
     (2, 2, 'Setelah itu tambahkan gula merah cair pada dinding gelas, lalu tuang jus alpukat.'),
     (2, 3, 'Jus alpukat siap disajikan.')

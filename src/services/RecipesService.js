@@ -10,10 +10,36 @@ const UsersCooks = require('../models/usersCooks');
 const UsersHistories = require('../models/usersHistories');
 
 class RecipesService {
-    async getRecipes() {
+    async getRecipes(categoryId = null, sort = null, limit = 10, skip = 0) {
         try {
+            const categories = [];
+            if (categoryId) {
+                categories.push(categoryId);
+            } else {
+                const getCategories = await Categories.findAll({
+                    raw: true,
+                    attributes: [
+                        'id',
+                    ],
+                });
+
+                for (const cat of getCategories) {
+                    categories.push(cat.id);
+                }
+            }
+            const condition = {
+                category_id: categories,
+            };
+
+            const sortArray = sort ? [sort.split('_')[0], sort.split('_')[1]] : ['created_at', 'DESC'];
             const recipes = await Recipes.findAll({
                 raw: true,
+                where: condition,
+                order: [
+                    sortArray,
+                ],
+                limit: parseInt(limit),
+                offset: parseInt(skip),
                 // include: Categories,
             });
 

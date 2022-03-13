@@ -188,7 +188,7 @@ class RecipesHandler {
                 message: 'Success',
                 data: recipes,
             });
-            response.code(201);
+            response.code(200);
             return response;
         } catch (error) {
             if (error instanceof ClientError) {

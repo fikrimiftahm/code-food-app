@@ -7,7 +7,7 @@ const ServePayloadSchema = Joi.object({
         .required()
         .messages({
             'number.min': 'Target serving minimum 1',
-            'any.required': `{{#label}} is required`,
+            'any.required': `Invalid target serving`,
             'number.base': `Invalid target serving`,
         }),
     recipeId: Joi.number()

@@ -266,7 +266,11 @@ class ServeHistoryService {
 
             return response;
         } catch (err) {
-            throw new InvariantError(err);
+            if (err.name === 'NotFoundError') {
+                throw new NotFoundError(err);
+            } else {
+                throw new InvariantError(err);
+            }
         }
     }
 

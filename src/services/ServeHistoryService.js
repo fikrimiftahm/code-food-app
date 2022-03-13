@@ -1,4 +1,3 @@
-const op = require('sequelize').Sequelize.Op;
 const { mySqlCon } = require('../utils/mysql-con');
 const InvariantError = require('../exceptions/InvariantError');
 const Categories = require('../models/categories');
